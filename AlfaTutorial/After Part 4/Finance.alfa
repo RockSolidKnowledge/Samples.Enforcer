@@ -1,0 +1,88 @@
+namespace AcmeCorp.Advice
+{
+    category AuthorizationFailureCat = "acmeCorp:AuthorizationFailure"
+    advice AuthorizationFailure = "acmeCorp:AuthorizationFailureOutcomeAction"
+
+    attribute AuthorizationFailureMessage 
+    {
+        id = "AuthorizationFailureMessage"
+        type = string
+        category = AuthorizationFailureCat
+    }
+}
+
+namespace AcmeCorp.Obligations
+{
+    category AuditCat = "acmeCorp:Audit"
+    obligation Audit = "acmeCorp:AuditOutcomeAction"
+
+    attribute When { id="When" type=dateTime category=AuditCat}
+    attribute Who { id="Who" type=string category=AuditCat }
+    attribute Description { id="Description" type=string category=AuditCat}
+
+}
+
+namespace AcmeCorp.Finance
+{
+    import Oasis.Attributes
+    import Advice
+    import Obligations
+    import Oasis.Functions
+
+    attribute PurchaseOrderTotal 
+    { 
+        id = "finance:PurchaseOrderTotal" 
+        type=double
+        category=actionCat
+    }
+   
+    policy PurchaseOrders
+    {
+        apply permitUnlessDeny
+        target clause ResourceType == 'PurchaseOrder'
+
+        rule RestrictAccessToEmployees
+        {
+            deny
+           
+
+            condition not EndsWith("@acme.com",Subject.Email)
+            on deny
+            {
+                advice AuthorizationFailure
+                {
+                    AuthorizationFailureMessage = "You must be an employee to access purchase orders."
+                }
+            }
+        }
+
+        rule RestrictCreation
+        {
+            deny
+            target clause Action == 'Create'
+            condition not Subject.Role == 'manager'  or
+                          Subject.Role == 'employee' and PurchaseOrderTotal < 100
+        }
+
+         on deny
+        {
+            advice AuthorizationFailure
+            {
+                AuthorizationFailureMessage = "Access Denied"
+            }
+        }
+
+
+
+        on permit
+        {
+            obligation Audit
+            {
+                When = CurrentDateTime
+                Who = Subject.Email
+                Description = "Accessed the Purchase Order system"
+                Action = Action
+            }
+        }
+    }
+}

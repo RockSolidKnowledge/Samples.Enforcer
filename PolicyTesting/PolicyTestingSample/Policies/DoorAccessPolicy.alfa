@@ -1,0 +1,54 @@
+namespace AcmeCorp.DoorPolicy {
+
+    namespace Audit {
+        attribute Subject   { id = "audit.subject" type = string category = subjectCat }
+        attribute Message   { id = "audit.message" type = string category = subjectCat }
+        attribute When      { id = "audit.when" type = dateTime category = subjectCat }
+        
+        obligation Log = "Audit.Log"
+    }
+
+    import Oasis.Functions.*
+    import Oasis.Attributes.*
+    
+    policyset global {
+        apply firstApplicable
+        policy doorAccess
+    }
+
+    // Controls access to all doors in the building
+    policy doorAccess {
+        target clause ResourceType == "door" && Action == "open"
+        apply denyUnlessPermit
+    
+        // Controls access to the main door, employees can open door during office hours only
+        rule mainDoor {
+            permit
+            target clause Resource == "mainDoor"
+            condition Subject.Role == 'employee' && CurrentTime >= "08:00:00":time
+                                                && CurrentTime < "18:00:00":time
+         
+            on permit { 
+                obligation Audit.Log {
+                    Audit.Subject = Single(Subject.Identifier)
+                    Audit.Message = "Opened main door"
+                    Audit.When = Single(CurrentDateTime)
+                }  
+            }
+        }
+   
+        rule serverRoom {
+            permit
+            target clause Resource == "serverRoomDoor"
+            condition Subject.Role  == 'ITAdmin' 
+        
+            on permit {
+                obligation Audit.Log {
+                    Audit.Subject = Single(Subject.Identifier)
+                    Audit.Message = Single(Resource) + " was accessed"
+                    Audit.When = Single(CurrentDateTime)
+                }  
+            }
+        }
+    }
+}

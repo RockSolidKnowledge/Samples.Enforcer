@@ -1,0 +1,39 @@
+@model IEnumerable<PurchaseOrder>
+@{
+    ViewData["Title"] = "Purchase Orders";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Purchase Orders</h1>
+</div>
+
+<div>
+    
+    <form method="post">
+        <field for="Description">Description</field>
+        <input name="Description"/>
+        <field for="Amount">Amount </field>
+        <input name="Amount"/>
+        
+        <button type="submit">Add</button>
+    </form>
+    <br/>
+    
+    <h2>Purchase Orders</h2>
+    <br/>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var purchaseOrder in Model)
+        {
+            <tr>
+                <td>@purchaseOrder.Description</td>
+                <td>@purchaseOrder.Amount</td>
+                <td>@Html.RouteLink("Edit","Edit", new { Id = @purchaseOrder.Id})</td>
+            </tr>
+        }
+    </table>
+</div>

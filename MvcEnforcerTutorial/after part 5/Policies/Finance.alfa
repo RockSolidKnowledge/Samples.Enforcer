@@ -1,0 +1,31 @@
+namespace AcmeCorp.Finance {
+
+    import Oasis.Attributes
+    
+    attribute PurchaseOrderTotal { id="PurchaseOrderTotal" category=actionCat type=double }
+    attribute PurchaseOrderLimit { id="MaxPurchaseOrderValue" category=resourceCat type=double}        
+    attribute PurchaseOrderDepartment { id="PurchaseOrderDepartment" category=resourceCat type=string}
+    
+    policy PurchaseOrders {
+        apply permitUnlessDeny
+        target clause ResourceType == 'PurchaseOrder'
+        
+        rule restrictToEmployees{
+            deny
+            condition not Subject.Role == 'employee'
+        }
+        
+        rule restrictEdit {
+            deny
+            target clause Action == 'Edit' or Action == 'Update'
+            condition not (Subject.Role == 'manager' and PurchaseOrderDepartment == Subject.Department ) 
+        }      
+        
+        rule restrictCreation {
+            target clause Action == 'Create' or Action == 'Update'
+            deny
+            condition not (Subject.Role == 'manager' and PurchaseOrderTotal < PurchaseOrderLimit) or
+                          (Subject.Role == 'employee' and PurchaseOrderTotal < 100 )
+        }
+    }
+}

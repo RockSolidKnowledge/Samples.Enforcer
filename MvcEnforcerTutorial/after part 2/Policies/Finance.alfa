@@ -1,0 +1,22 @@
+namespace AcmeCorp.Finance {
+
+    import Oasis.Attributes
+        
+    policy PurchaseOrders {
+        apply permitUnlessDeny
+        target clause ResourceType == 'PurchaseOrder'
+        
+        rule restrictToEmployees{
+            deny
+            condition not Subject.Role == 'employee'
+        }
+        
+        rule restrictCreation {
+            target clause Action == 'Create'
+            deny
+            condition not Subject.Role == 'manager'
+        }
+        
+        
+    }
+}

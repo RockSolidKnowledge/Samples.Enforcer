@@ -1,0 +1,31 @@
+namespace AcmeCorp.Finance
+{
+    import Oasis.Attributes
+
+    attribute PurchaseOrderTotal 
+    { 
+        id = "finance:PurchaseOrderTotal" 
+        type=double
+        category=actionCat
+    }
+   
+    policy PurchaseOrders
+    {
+        apply permitUnlessDeny
+        target clause ResourceType == 'PurchaseOrder'
+
+        rule RestrictAccessToEmployees
+        {
+            deny
+            condition not Subject.Role == 'employee'
+        }
+
+        rule RestrictCreation
+        {
+            deny
+            target clause Action == 'Create'
+            condition not Subject.Role == 'manager'  or
+                          Subject.Role == 'employee' and PurchaseOrderTotal < 100
+        }
+    }
+}

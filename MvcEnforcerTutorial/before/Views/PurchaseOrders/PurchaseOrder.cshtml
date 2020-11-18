@@ -1,0 +1,22 @@
+@model PurchaseOrder
+@{
+    ViewData["Title"] = "Edit PO";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Edit Purchase Orders</h1>
+</div>
+
+<div>
+    
+    <form method="post">
+        <field for="Description">Description</field>
+        <input name="Description" value="@Model.Description"/>
+        <field for="Amount">Amount </field>
+        <input name="Amount" value="@Model.Amount"/>
+        
+        <button type="submit">Update</button>
+    </form>
+    <br/>
+    
+</div>

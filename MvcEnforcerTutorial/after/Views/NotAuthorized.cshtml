@@ -1,0 +1,12 @@
+@model List<string>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Not Authorized</h2>
+@foreach (string reason in Model)
+{
+    @reason
+}

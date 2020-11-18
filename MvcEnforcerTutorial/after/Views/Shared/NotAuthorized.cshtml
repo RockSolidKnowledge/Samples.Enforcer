@@ -1,0 +1,12 @@
+@model IEnumerable<AuthorizationFailureAdvice>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Not Authorized</h2>
+@foreach (var reason in Model)
+{
+    @reason.Message
+}

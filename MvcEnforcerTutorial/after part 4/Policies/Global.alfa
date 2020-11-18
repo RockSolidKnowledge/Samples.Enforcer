@@ -1,0 +1,9 @@
+namespace AcmeCorp {
+
+    import AcmeCorp.Finance
+    
+    policyset Global {
+        apply firstApplicable
+        policy PurchaseOrders
+    }
+}
