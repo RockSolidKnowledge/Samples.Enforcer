@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Rsk.Enforcer;
 using Rsk.Enforcer.AspNetCore;
 using Rsk.Enforcer.PEP;
-using SecureMVCApp.PolicyInformationPoints;
+using SecureMVCApp.PolicyInformationPoint;
 using SecureMVCApp.Services;
 
 namespace SecureMVCApp
@@ -67,7 +67,7 @@ namespace SecureMVCApp
                 .AddPolicyEnforcementPoint(o => o.Bias = PepBias.Deny)
                 .AddClaimsAttributeValueProvider(o => { })
                 .AddDefaultAdviceHandling()
-                .AddPolicyAttributeProvider<FinanceDepartmentPIP>();
+                .AddPolicyAttributeProvider<FinanceDepartmentAttributeProvider>();
 
             
             services.AddControllersWithViews();

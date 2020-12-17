@@ -18,7 +18,7 @@ using Rsk.Enforcer;
 using Rsk.Enforcer.AspNetCore;
 using Rsk.Enforcer.PEP;
 using SecureMVCApp.Models;
-using SecureMVCApp.PolicyInformationPoints;
+using SecureMVCApp.PolicyInformationPoint;
 using SecureMVCApp.Services;
 
 namespace SecureMVCApp
@@ -68,7 +68,7 @@ namespace SecureMVCApp
                 .AddPolicyEnforcementPoint(o => o.Bias = PepBias.Deny)
                 .AddClaimsAttributeValueProvider(o => { })
                 .AddDefaultAdviceHandling()
-                .AddPolicyAttributeProvider<FinanceDepartmentPIP>()
+                .AddPolicyAttributeProvider<FinanceDepartmentAttributeValueProvider>()
                 .AddEnforcerAuthorizationDenyHandler<AuthorizationFailureAdvice>("~/Views/Shared/NotAuthorized.cshtml");
 
             

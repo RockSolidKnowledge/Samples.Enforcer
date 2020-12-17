@@ -4,17 +4,9 @@ using System.Threading.Tasks;
 using Rsk.Enforcer.PIP;
 using Rsk.Enforcer.PolicyModels;
 
-namespace SecureMVCApp.PolicyInformationPoints
+namespace SecureMVCApp.PolicyInformationPoint
 {
-    
-    public class FinanceDepartmentLimits
-    {
-        [PolicyAttributeValue(PolicyAttributeCategories.Resource,"MaxPurchaseOrderValue")]
-        public double? MaxPurchaseOrder { get; set; }
-    }
-
-    
-    public class FinanceDepartmentPIP: RecordAttributeValueProvider<FinanceDepartmentLimits>
+    public class FinanceDepartmentAttributeProvider: RecordAttributeValueProvider<FinanceDepartmentLimits>
     {
         private static readonly PolicyAttribute Department =
             new PolicyAttribute("department",PolicyValueType.String,PolicyAttributeCategories.Subject);
