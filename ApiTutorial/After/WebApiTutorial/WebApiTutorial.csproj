@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AspNetCore.Authentication.ApiKey" Version="5.0.0" />
+        <PackageReference Include="Rsk.Enforcer" Version="1.1.0" />
+        <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="1.1.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <EmbeddedResource Include="Policy\quotes.alfa" />
+    </ItemGroup>
+</Project>

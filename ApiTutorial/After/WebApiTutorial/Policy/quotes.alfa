@@ -1,0 +1,78 @@
+namespace AcmeQuotes
+{
+    attribute SubscriptionLevel
+    {
+        id = 'subscriptionLevel'
+        type = string
+        category = subjectCat
+    }
+
+    category quoteCat = 'urn:acmecorp-quotes'
+
+    attribute MaxQuotesPerDay
+    {
+        id = 'maxQuotes'
+        type = integer
+        category = quoteCat
+    }
+
+    attribute CurrentQuotesToday
+    {
+        id = 'currentQuotes'
+        type = integer
+        category = quoteCat
+    }
+
+    attribute AccessDeniedReason
+    {
+        id = 'deniedReason'
+        type = string
+        category = quoteCat
+    }
+
+    advice AccessDenied = 'accessDeniedAdvice'
+
+    import Oasis.Attributes
+    import Enforcer.Functions.*
+
+    policy ReadQuotes
+    {
+        target clause ResourceType == 'quote'
+
+        apply permitUnlessDeny
+
+        rule LiveMustBePro
+        {
+            target clause Action == 'live'
+
+            condition not SubscriptionLevel == 'pro'
+
+            deny
+
+            on deny 
+            {
+                advice AccessDenied
+                {
+                    AccessDeniedReason = 'Live quotes are only available with a pro subscription'
+                }
+            }
+        }
+
+        rule DelayMustBeWithinLimits
+        {
+            target clause Action == 'delayed'
+
+            condition not CurrentQuotesToday < MaxQuotesPerDay
+
+            deny
+
+            on deny 
+            {
+                advice AccessDenied
+                {
+                    AccessDeniedReason = 'free subscriptions are limited to ' + ToString(MaxQuotesPerDay) + ' quotes per day'
+                }
+            }
+        }
+    }
+}
