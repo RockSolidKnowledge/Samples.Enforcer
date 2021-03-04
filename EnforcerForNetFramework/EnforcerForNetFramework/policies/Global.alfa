@@ -1,0 +1,32 @@
+﻿namespace RSK.Samples
+{
+    import Oasis.Attributes
+    import Enforcer.Attributes
+    import Oasis.Functions
+    import Enforcer.Functions
+    
+    policyset Global {
+        apply firstApplicable
+        policy OfficeAccess
+    }
+
+    policy OfficeAccess
+    {
+        target clause ResourceType == "Office"
+        apply denyUnlessPermit
+
+        rule AllowEmployeesEntryToOfficeDuringOfficeHours{
+            target clause Action == "Enter"
+            permit
+            condition Subject.Role == 'employee' and 
+                      CurrentTime >="08:00:00":time and
+                      CurrentTime <= "18:00:00":time 
+        }
+
+        rule AllowManagersAccessAnyTime{
+            target clause Action == "Enter"
+            permit
+            condition Subject.Role == 'manager'
+        }
+    }
+}
