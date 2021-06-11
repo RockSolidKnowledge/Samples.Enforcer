@@ -1,0 +1,27 @@
+namespace Policies {
+
+    import Oasis.Attributes
+    import Oasis.Functions
+
+    obligation obligationSpy = "outcomeSpy"
+    attribute Message { id = "message" type=string category=resourceCat }
+    attribute When { id = "when" type=dateTime category=resourceCat }
+    
+    policy TestPolicy 
+    {
+        apply firstApplicable
+
+        rule alwaysPermit
+        {
+            permit
+        }    
+
+        on permit 
+        {
+            obligation obligationSpy {
+                Message =  ToBag("Hello World","Again")
+                When = CurrentDateTime
+            }
+        }
+    }
+}

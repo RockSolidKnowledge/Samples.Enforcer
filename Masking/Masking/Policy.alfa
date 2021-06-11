@@ -1,0 +1,27 @@
+
+
+namespace Policies {
+
+    import Oasis.Attributes
+    import Oasis.Functions
+    import Enforcer.DataMasking
+  
+    
+    policy TestPolicy 
+    {
+        apply firstApplicable
+
+        rule alwaysPermit
+        {
+            permit
+        }    
+
+        on permit 
+        {
+          obligation DataMasking 
+          {
+            CategoriesToMask="secret"
+          }
+        }
+    }
+}
