@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
         <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="1.2.0-beta1" />
-        <PackageReference Include="Rsk.Enforcer" Version="1.2.0-beta1" />
+        <PackageReference Include="Rsk.Enforcer" Version="1.2.0-beta1"/>
     </ItemGroup>
     
     <ItemGroup>
