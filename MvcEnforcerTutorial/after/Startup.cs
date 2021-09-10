@@ -36,7 +36,7 @@ namespace SecureMVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             string licensee = "DEMO";
-            string licenseKey = "Get your license key from https://identityserver.com/products/enforcer";
+            string licenseKey = "eyJTb2xkRm9yIjowLjAsIktleVByZXNldCI6NiwiU2F2ZUtleSI6ZmFsc2UsIkxlZ2FjeUtleSI6ZmFsc2UsIlJlbmV3YWxTZW50VGltZSI6IjAwMDEtMDEtMDFUMDA6MDA6MDAiLCJhdXRoIjoiREVNTyIsImV4cCI6IjIwMjEtMDYtMDNUMDE6MDA6MDUuNzI4NzUyMSswMTowMCIsImlhdCI6IjIwMjEtMDUtMDRUMDA6MDA6MDUiLCJvcmciOiJERU1PIiwiYXVkIjo3fQ==.jsy5lPG6IuG26a8lyEfAK9gQkl2XuNxm0Kz+fEqyiMk/A9jFrMEcCbqDBq5FlhLPAvKHNChcnfRGMT+lKZ+/1jNNal/uLw741unbt/Qhqk8A9ncoIQnNWxXZ1PGK/Ng2Ko60CrV+BhDJqigiY8V85hkfKNReuK5H8ZDSTZ2yBFCpvtPRsegMvFlGkh8Yq7euUURL8VGG3pgrNd+exnMa6dWYib4BNt4dgP9DEfPrTEB11ycN1RB9+AznWqCMGM3DYUxKJwEpqPOwaCj5SnDh1ZhkswJBKGhkvrx27eRMW9SrtHME/69576GNkHYteOj6LKA/P91NV8JKcF3SOQO4pAJFHNq/3Kx1Me/Q4zUYB7losjYCF66TMTvEYYzTssNiZF2PqOlmACsm719YmZR6BG9pkquiSycrgc9RF9ROaM+tiD/4RMxRknshetxNTE3ejek4177/uNIyXy2JMlk3+X4q0DI9t4xpXk+uL9IalL3azsUoNQvAUhfmsm/BnR95t+W5C9OALinEunpYPrcj4xJL6kpLf6Bg31aJLa/AM7SWacoZwt0Sb2R6eNeAzgwJYbIW10Ye5Mqco/l6OzVaNwjM0Vt2FjhbSyPJc/xmMV44R1Q9/QXXm72etRLwQAqvsPAbCXE+DR462lMu4TC1xOrpuZ2c23J8Z8anL9DGQGQ=";
             
             services.AddLogging(lb =>
             {
@@ -58,9 +58,10 @@ namespace SecureMVCApp
                     options.SignIn.RequireConfirmedAccount = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+
             services
-                .AddEnforcer("AcmeCorp.Global", options =>  {
+                .AddEnforcer("AcmeCorp.Global", options =>
+                {
                     options.Licensee = licensee;
                     options.LicenseKey = licenseKey;
                 })
@@ -69,8 +70,7 @@ namespace SecureMVCApp
                 .AddClaimsAttributeValueProvider(o => { })
                 .AddDefaultAdviceHandling()
                 .AddPolicyAttributeProvider<FinanceDepartmentAttributeValueProvider>()
-                .AddEnforcerAuthorizationDenyHandler<AuthorizationFailureAdvice>("~/Views/Shared/NotAuthorized.cshtml");
-
+                .AddEnforcerAuthorizationRazorViewDenyHandler<AuthorizationFailureAdvice>("~/Views/Shared/NotAuthorized.cshtml");
             
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -9,6 +9,10 @@ namespace EvaluateObligationHandler
 {
     public class AttributeSpyOutcomeActionHandler : OutcomeActionHandler
     {
+        public AttributeSpyOutcomeActionHandler(string obligationName)
+        {
+           Name = obligationName;
+        }
         public override Task Execute(IEnumerable<PolicyAttributeValue> parameters, IEnforcerLogger evaluationLogger)
         {
             Attributes = parameters.ToArray();
@@ -16,6 +20,6 @@ namespace EvaluateObligationHandler
         }
 
         public PolicyAttributeValue[] Attributes { get; private set; }
-        public override string Name => "outcomeSpy";
+        public override string Name { get; }
     }
 }

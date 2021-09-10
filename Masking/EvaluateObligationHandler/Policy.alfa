@@ -7,6 +7,11 @@ namespace Policies {
     attribute Message { id = "message" type=string category=resourceCat }
     attribute When { id = "when" type=dateTime category=resourceCat }
     
+    
+    obligation anotherSpy = "anotherSpy"
+    attribute Name { id = "name" type=string category=resourceCat }
+          
+      
     policy TestPolicy 
     {
         apply firstApplicable
@@ -22,6 +27,10 @@ namespace Policies {
                 Message =  ToBag("Hello World","Again")
                 When = CurrentDateTime
             }
+            
+            obligation anotherSpy {
+              Name = "Andy"
+           }
         }
     }
 }

@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Rsk.Enforcer" Version="1.2.0-beta1" />
+        <PackageReference Include="Rsk.Enforcer" Version="1.2.0-beta1" />
     </ItemGroup>
 
     <ItemGroup>
