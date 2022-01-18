@@ -1,0 +1,66 @@
+﻿namespace RSK.Samples
+{
+    import Oasis.Attributes
+    import Enforcer.Attributes
+    import Oasis.Functions
+    import Enforcer.Functions
+    
+     namespace Auditing {
+            attribute message { id="AuditMessage" type=string category=resourceCat }
+            obligation audit="Audit"
+        }
+        
+        namespace Authorization
+        {
+            advice failure="AuthorizationFailure"
+            attribute failureMessage { id="FailureMessage" type=string category=resourceCat}
+        }
+    
+    policyset Global {
+        apply firstApplicable
+        policy OfficeAccess
+        
+         on deny {
+              advice Authorization.failure
+              {
+                  Authorization.failureMessage = "You can only access the building as an employee between 08:00 and 18:00"
+              }
+          }
+          
+            on permit {
+              obligation Auditing.audit
+              {
+                  Auditing.message="Entered the Office"
+              }
+            }
+            
+              on deny {
+                  obligation Auditing.audit
+                  {
+                      Auditing.message="Failed attempt made to enter the Office"
+                  }
+              }
+    }
+   
+    policy OfficeAccess
+    {
+        target clause ResourceType == "Office"
+        apply denyUnlessPermit
+
+        rule AllowEmployeesEntryToOfficeDuringOfficeHours{
+            target clause Action == "Enter"
+            permit
+            condition Subject.Role == 'employee' and 
+                      CurrentTime >="08:00:00":time and
+                      CurrentTime <= "18:00:00":time 
+               
+        }
+
+        rule AllowManagersAccessAnyTime{
+            target clause Action == "Enter"
+            permit
+            condition Subject.Role == 'manager'
+        }
+         
+    }
+}
