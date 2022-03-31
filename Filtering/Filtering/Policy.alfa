@@ -1,0 +1,48 @@
+
+namespace Subject
+{
+    attribute Region { id="region"  type=string category=subjectCat }
+}
+
+namespace Filters
+{
+     attribute Region { id="region"  type=string category=resourceCat }
+     obligation SalesByRegion = "filterSalesByRegion"
+}
+
+namespace Policies
+{
+
+    import Oasis.Attributes
+    import Oasis.Functions
+      
+    policy salesReport 
+    {
+        target clause Action == "view" and Resource=="salesReport"
+     
+        apply denyUnlessPermit
+        
+        rule forDirectors
+        {
+            permit
+            condition Subject.Role == "director"
+        }
+
+        rule forSalesReps
+        {
+            permit
+            condition Subject.Role == "sales"
+            
+            // Sales reps can see sales but only for their region
+            
+            on permit 
+            {
+                obligation Filters.SalesByRegion
+                {
+                    Filters.Region = Subject.Region
+                }
+            }
+        }    
+
+    }
+}
