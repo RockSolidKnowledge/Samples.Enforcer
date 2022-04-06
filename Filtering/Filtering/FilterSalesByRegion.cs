@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using Rsk.Enforcer.PEP;
 using Rsk.Enforcer.PolicyModels;
 using Rsk.Enforcer.Services.Logging;
@@ -8,7 +7,7 @@ namespace Filtering
     public class FilterArguments
     {
         [PolicyAttribute(PolicyAttributeCategories.Resource, "region")]
-        public string Region { get; set; }
+        public string? Region { get; set; }
     }
 
     public class FilterSalesByRegion : OutcomeActionHandler<FilterArguments>

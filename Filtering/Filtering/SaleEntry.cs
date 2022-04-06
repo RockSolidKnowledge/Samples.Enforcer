@@ -2,9 +2,9 @@ namespace Filtering;
 
 public class SaleEntry
 {
-    public string Item { get; set; }
+    public string? Item { get; set; }
     public decimal Price { get; set; }
-    public string Location { get; set; }
+    public string? Location { get; set; }
 
     public override string ToString()
     {

@@ -11,12 +11,12 @@ public class SalesReportAuthorizationContext: AuthorizationContext<SalesReportAu
 {
     public SalesReportAuthorizationContext() : base("reports","view","salesReport")
     {
-        
+        Roles = Array.Empty<string>();
     }
     
     [PolicyAttributeValue(PolicyAttributeCategories.Subject,"role")]
     public string[] Roles { get; set; }
     
     [PolicyAttributeValue(PolicyAttributeCategories.Subject,"region")]
-    public string Region { get; set; }
+    public string? Region { get; set; }
 }

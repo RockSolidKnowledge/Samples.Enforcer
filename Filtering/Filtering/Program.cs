@@ -75,7 +75,7 @@ namespace Filtering
             var salesFilter = new FilterSalesByRegion();
            
             PolicyEvaluationOutcome reportAccess =
-                await pep.Evaluate(context, new OutcomeActionHandler[] {  salesFilter });
+                await pep!.Evaluate(context, new OutcomeActionHandler[] {  salesFilter });
 
             if (reportAccess.Outcome == PolicyOutcome.Permit)
             {
