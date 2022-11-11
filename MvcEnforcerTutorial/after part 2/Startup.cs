@@ -34,7 +34,7 @@ namespace SecureMVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             string licensee = "DEMO";
-           string licenseKey = "Get your license key from https://identityserver.com/products/enforcer";
+           string licenseKey = "";
             
             services.AddLogging(lb =>
             {

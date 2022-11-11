@@ -21,7 +21,7 @@ namespace WebApiTutorial
 {
     public class Constants
     {
-        public const string LicenseKey = "your license key>";
+        public const string LicenseKey = "your license key";
         public const string Licensee = "DEMO";
     }
 
