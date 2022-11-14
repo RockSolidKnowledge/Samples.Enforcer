@@ -31,6 +31,17 @@ namespace MaskingWebApp.Controllers
                 To = "Sally"
             });
         }
+        
+         [EnforcerAuthorization]
+                public IActionResult Many()
+                {
+                    return View(Enumerable.Range(0,10).Select(i=> new ResponseViewModel()
+                    {
+                        Message = "Top secret can't see this",
+                        From = "Andy",
+                        To = "Sally"
+                    }).ToList());
+                }
 
         public IActionResult Privacy()
         {

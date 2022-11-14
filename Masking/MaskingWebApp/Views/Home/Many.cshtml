@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ResponseViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+   @foreach (var item in Model)
+   {
+       <br/>
+       <i>@item.ToString()</i>
+   }
+</div>
