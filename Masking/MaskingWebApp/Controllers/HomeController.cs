@@ -33,15 +33,26 @@ namespace MaskingWebApp.Controllers
         }
         
          [EnforcerAuthorization]
-                public IActionResult Many()
-                {
-                    return View(Enumerable.Range(0,10).Select(i=> new ResponseViewModel()
-                    {
-                        Message = "Top secret can't see this",
-                        From = "Andy",
-                        To = "Sally"
-                    }).ToList());
-                }
+        public IActionResult Many()
+        {
+            return View(Enumerable.Range(0,10).Select(i=> new ResponseViewModel()
+            {
+                Message = "Top secret can't see this",
+                From = "Andy",
+                To = "Sally"
+            }).ToList());
+        }
+
+        [EnforcerAuthorization]
+        public JsonResult AsJson()
+        {
+            return new JsonResult(Enumerable.Range(0,10).Select(i=> new ResponseViewModel()
+            {
+                Message = "Top secret can't see this",
+                From = "Andy",
+                To = "Sally"
+            }).ToList());
+        }
 
         public IActionResult Privacy()
         {
