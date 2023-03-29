@@ -16,8 +16,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11" />
-    <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="1.4.1" />
-    
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +31,12 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Rsk.Enforcer.AspNetCore\Rsk.Enforcer.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Rsk.Enforcer.Remote.Contract\Rsk.Enforcer.Remote.Contract.csproj" />
+    <ProjectReference Include="..\..\Rsk.Enforcer.Remote\Rsk.Enforcer.Remote.csproj" />
   </ItemGroup>
 
 </Project>

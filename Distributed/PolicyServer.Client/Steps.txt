@@ -1,0 +1,275 @@
+
+- Add Enforcer nuget package
+- Update Startup to add Enforcer
+
+ services.AddEnforcer("AcmeCorp.Global", options =>
+                {
+                    options.Licensee = "Demo";
+                    options.LicenseKey =
+                        "eyJTb2xkRm9yIjowLjAsIktleVByZXNldCI6NiwiU2F2ZUtleSI6ZmFsc2UsIkxlZ2FjeUtleSI6ZmFsc2UsIlJlbmV3YWxTZW50VGltZSI6IjAwMDEtMDEtMDFUMDA6MDA6MDAiLCJhdXRoIjoiREVNTyIsImV4cCI6IjIwMjAtMTAtMDlUMDA6MDA6MDAiLCJpYXQiOiIyMDIwLTA5LTA5VDA5OjI0OjU3Iiwib3JnIjoiREVNTyIsImF1ZCI6N30=.VilGRZZZTjRsNfavEwX4Hdh1YlTuB1UpXKsZO1p8L0G1lqgvHKhAwYoiu711nZBkV+98ZcG64Bal1woLJEimXPIOCa/oxfaILui9ALMnKsxgRp/7eaWSEALGQEKuDFs8hXGbssJcDAyuWzLuZBFX/84coIBDTakG+kWtenLJKAT6hMEf8w9GOsRsMvupI1mEJC/ZggJGJqEi+pSth2Ibl1FMC4bqciQddC5BfXIWxYtychc2zzhVIOfH+BTRaI4bRdlBA9cGTarahM4eScxkiiqUBWDm9w5wp97yE8KO9L1GkXTDZ2kBhMK6uyc/zCBnz+YmUNqcaxxuHYpikTQsbUeX9nFF9Z+niacSfOWTi1B0VhH+STi0aPOu19KyYGYI+ObIDvdayQ7lozkHVvEHjz7WL50RTT7fhkQFLdIL60lCfIzO6SCNGCRER/3eP4NqmWIYLhQ0o5b362ntDMt6eWtfTsVxQ4BllTDBmbODRjQ798Hx9pgzjNrgtAR0fScI7wuo26+YwtnO4mIrIayBwk52nf3Kw+V7G2+3LzQlGrn38DNGNlIuchcM+Ay6tgL3Rd3t7+YS1zAiS43VEccplwh20A4OWjFsoG1qqarGUaobQNt1nM7HLTVR8Ud8rcCpsurGViESPOa1pCOyIbtM75QbMvbdMb+Hibp5EhxLJus=";
+                })
+                .AddFileSystemPolicyStore("..", "alfa")
+                .AddPolicyEnforcementPoint(o => o.Bias = PepBias.Deny)
+                .AddDefaultAdviceHandling();
+
+
+- Create an initial policy
+namespace AcmeCorp {
+
+    import Oasis.Attributes
+    
+    policyset Global {
+        apply firstApplicable
+        
+    }
+}
+
+- Add the EnforcerAuthorization attribute to the Index method
+-  Add logging to see why the authorization is failing
+  services.AddLogging(), only seems to output Info and above
+  the PDP uses Diagnostics level for policy evaluation
+  ** Can't seem to get this to work at the moment **
+
+- Update policy for Viewing Purchase orders
+
+namespace AcmeCorp {
+
+    import Oasis.Attributes
+    import Finance
+    
+    policyset Global {
+        apply firstApplicable
+        
+        policy PurchaseOrders
+    }
+    
+- Create a new file called Finance.alfa
+
+namespace AcmeCorp.Finance {
+    import Oasis.Attributes
+    
+    policy PurchaseOrders {
+        target clause ResourceType == 'PurchaseOrder'
+        apply denyUnlessPermit
+        
+        rule viewPurchaseOrders {
+            permit
+            target clause Action == 'View'
+        }
+    }   
+}
+
+- Update the EnforcerAttribute to contain the ResourceType and Action values
+
+- Modify the policy to only allow managers to raise purchase orders
+
+   rule raisePurchaseOrders {
+                permit
+                target clause Action == 'Create'
+                condition Subject.Role == 'manager' 
+                
+- Update the Enforcer attribute on the CreatePurchaseOrder method
+  ResourceType="PurchaseOrder" Action = "Create"
+- Verify that managers can now create purchase orders, and employees can't
+
+                         
+- Now introduce the idea that employees can create POs up to a 100 limit
+  to do this introduce an attribute to hold the purchase order request information
+  
+   attribute PurchaseOrderTotal {  type=double  category=actionCat }
+      
+   
+-  Modify raisePurchaseOrders rule
+     
+  
+     rule raisePurchaseOrders {
+                  permit
+                  target clause Action == 'Create'
+                  condition Subject.Role == 'manager' or
+                           ( Subject.Role == 'employee' and PurchaseOrderTotal < 100)
+                           
+- Decorate the CreatePurchaseOrderRequest with a mapping to ALFA attribute
+
+ public class CreatePurchaseOrderRequest
+    {
+        [PolicyAttributeValue(PolicyAttributeCategories.Action, "AcmeCorp.Finance.PurchaseOrderTotal")]
+        public double? Amount { get; set; }
+
+        public string Description { get; set; }
+    }
+
+- Verify it works
+
+## Part 2, Adding a PIP
+
+- Update the ALFA to make use of a value that provides the current users department max spend
+
+ attribute DepartmentMaxPurchaseOrder { type = double category=resourceCat }
+ 
+ - Update the policy to take advantage
+ - Add a new rule
+   rule raisePurchaseOrdersUpToDepartmentMaximum{
+                 deny
+                 target clause Action == 'Create'
+                 condition PurchaseOrderTotal < DepartmentMaxPurchaseOrder
+             }
+- Update the combining algorithm to apply denyOverridesPermit
+
+- Create the PIP
+
+public class PurchaseOrderLimits
+    {
+        [PolicyAttributeValue(PolicyAttributeCategories.Resource,"AcmeCorp.Finance.DepartmentMaxPurchaseOrder")]
+        public double? DepartmentLimit { get; set; }
+    }
+    
+    public class PurchaseOrderPip : RecordAttributeValueProvider<PurchaseOrderLimits>
+    {
+        protected override Task<PurchaseOrderLimits> GetRecordValue(IAttributeResolver attributeResolver)
+        {
+            return Task.FromResult(new PurchaseOrderLimits()
+            {
+                DepartmentLimit = 300
+            });
+        }
+    }
+    
+ - Extend the PIP to have a different amount based on department
+ 
+ - Need to retrieve other values to make decision
+ - using the Claims PIP provider
+ 
+  public class PurchaseOrderPip : RecordAttributeValueProvider<PurchaseOrderLimits>
+     {
+         private static readonly PolicyAttribute departmentClaim = new PolicyAttribute("department",PolicyValueType.String,PolicyAttributeCategories.Subject);
+         
+         protected override async Task<PurchaseOrderLimits> GetRecordValue(IAttributeResolver attributeResolver)
+         {
+             string department = (await attributeResolver.Resolve<string>(departmentClaim)).First();
+ 
+             double limit = 100;
+             switch (department)
+             {
+                 case "engineering":
+                     limit = 300;
+                     break;
+                 case "finance": 
+                     limit = 1000;
+                     break;
+             }
+             return new PurchaseOrderLimits()
+             {
+                 DepartmentLimit = limit
+             };
+         }
+     }
+
+ ## Part 3, Adding an obligations and Advice
+ 
+  - Discuss the need to add security behaviour as an outcome of policy
+   
+ ### Adding obligation
+ - Add the ALFA
+ - Create an Audit.alfa file
+ 
+ namespace AcmeCorp.Auditing {
+ 
+     obligation Audit = "AcmeCorp.Audit"
+     
+     attribute Who  { type=string  category = resourceCat }
+     attribute Description  {type=string category = resourceCat }
+ }
+ 
+ - Update Finance.alfa to 
+ - import AcmeCorp.Auditing
+ - Update the createPurchaseOrderRule, to have the following obligation
+ 
+  // Audit the fact that a user attempted to create a purchase order
+                 on permit {
+                     obligation AcmeCorp.Auditing.Audit {
+                         Who = Subject.Email
+                         Description = "Purchase Order for " + ToString(PurchaseOrderItem) + "at a value of £" + ToString(PurchaseOrderTotal)
+                     }
+                 }
+ - Add the obligation handler
+ - Create folder Called PolicyOutcomeActions
+ 
+ public class AuditActionArgs
+     {
+         [PolicyAttribute("AcmeCorp.Auditing","Who",MustBePresent = true)]
+         public string Who { get; set; }
+         [PolicyAttribute("AcmeCorp.Auditing","Description", MustBePresent = true)]
+         public string Description { get; set; }
+     }
+     
+     public class AuditOutcomeAction : OutcomeActionHandler<AuditActionArgs>
+     {
+         public override string Name { get; } = "AcmeCorp.Audit";
+ 
+         protected override Task Execute(AuditActionArgs parameters, IEnforcerLogger evaluationLogger)
+         {
+             evaluationLogger.LogInformation($"{parameters.Who} performed {parameters.Description} on {DateTime.Now}, {parameters.Description}");
+             
+             return Task.CompletedTask;
+         }
+     }
+     
+ -   .AddOutcomeActionHandler<AuditOutcomeAction>()
+ 
+ ### Adding advice
+ 
+ - To provide user feedback on why they haven't managed to obtain authorization
+ 
+ - Create AuthorizationFailure.alfa
+ 
+ namespace AcmeCorp.AuthorizationFailure {
+     category authorizationFailureCat = "AcmeCorp.AuthorizationFailure"
+ 
+     attribute Reason { id = "Reason" type=string category=authorizationFailureCat}
+ 
+     advice AuthorizationFailure = "AcmeCorp.AuthorizationFailure"
+ }
+ 
+ - Update Finance.alfa
+ 
+ rule raisePurchaseOrdersUpToDepartmentMaximum{
+                 deny
+                 target clause Action == 'Create'
+                 condition PurchaseOrderTotal > DepartmentMaxPurchaseOrder
+ 
+                 on deny {
+                     advice AuthorizationFailure {
+                         Reason = "Your purchase Order exceeded the maximum of £"+ToString(DepartmentMaxPurchaseOrder)
+                     }
+                 }
+                 
+             }
+             
+ 
+ - Update Startup.cs
+ 
+  services.AddRazorDenyHandler<string>(o =>
+                 {
+                     o.NotAuthorizedViewPath = "~/Views/AuthorizationFailure/NotAuthorized.cshtml";
+                     o.ViewModelMapper = (PolicyEvaluationAction action, out string model) =>
+                     {
+                         model = null;
+                         if (action.Name != "AcmeCorp.AuthorizationFailure") return false;
+ 
+                         model = action.Arguments.First(a => a.Name == "Reason")
+                             .GetValue<string>()
+                             .First();
+ 
+                         return true;
+                     };
+                 })
+  .AddUnresolvedAdviceHandler<DefaultUnresolvedAdviceHandler>()
+  
+  - Create a view
+  
+  
+ ## Part 4, 
+ 
+ 
+ 
+

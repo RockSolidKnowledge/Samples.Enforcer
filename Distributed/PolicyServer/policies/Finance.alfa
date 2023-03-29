@@ -1,0 +1,53 @@
+namespace AcmeCorp.Finance {
+
+    import Oasis.Attributes
+    import AcmeCorp.Advice
+    import Oasis.Functions
+    import Enforcer.Functions
+    
+    
+    
+    attribute PurchaseOrderTotal { id="PurchaseOrderTotal" category=actionCat type=double }
+    attribute PurchaseOrderLimit { id="MaxPurchaseOrderValue" category=resourceCat type=double}        
+    attribute PurchaseOrderDepartment { id="PurchaseOrderDepartment" category=resourceCat type=string}
+    
+    policy PurchaseOrders {
+        apply permitUnlessDeny
+        target clause ResourceType == 'PurchaseOrder'
+        
+        rule restrictToEmployees{
+            deny
+            condition not (Subject.Role == 'employee')
+            on deny {
+                advice AuthorizationFailure {
+                    AuthorizeFailureMessage = "Only employees can access purchase orders"
+                }
+            }
+        }
+        
+        rule restrictEdit {
+            deny
+            target clause Action == 'Edit' or Action == 'Update'
+            condition not (Subject.Role == 'manager' and PurchaseOrderDepartment == Subject.Department ) 
+            
+            on deny {
+                advice AuthorizationFailure {
+                    AuthorizeFailureMessage = "Managers can only edit their own department POs this PO is for " + Single(PurchaseOrderDepartment)
+                }
+            }
+        }      
+        
+        rule restrictCreation {
+            target clause Action == 'Create' or Action == 'Update'
+            deny
+            condition not ((Subject.Role == 'manager' and PurchaseOrderTotal < PurchaseOrderLimit) or
+                          (Subject.Role == 'employee' and PurchaseOrderTotal < 100 ))
+                          
+            on deny {
+                advice AuthorizationFailure {
+                    AuthorizeFailureMessage = "Managers in your department can raise purchase orders up to $" + ToString(PurchaseOrderLimit) + " or employees up to $100"
+                }
+            }
+        }
+    }
+}
