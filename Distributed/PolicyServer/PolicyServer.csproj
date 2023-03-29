@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-          <ProjectReference Include="..\..\Rsk.Enforcer.Remote.Hosting\Rsk.Enforcer.Remote.Hosting.csproj" />
+        <PackageReference Include="Rsk.Enforcer.Remote.Hosting" Version="1.0.0"/>
     </ItemGroup>
 
     <ItemGroup>

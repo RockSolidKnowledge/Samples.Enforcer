@@ -34,9 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Rsk.Enforcer.AspNetCore\Rsk.Enforcer.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Rsk.Enforcer.Remote.Contract\Rsk.Enforcer.Remote.Contract.csproj" />
-    <ProjectReference Include="..\..\Rsk.Enforcer.Remote\Rsk.Enforcer.Remote.csproj" />
+    <PackageReference Include="Rsk.Enforcer.AspNetCore"  Version="2.0.0" />
+    <PackageReference Include="Rsk.Enforcer.Remote" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
