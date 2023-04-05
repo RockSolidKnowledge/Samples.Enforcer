@@ -11,7 +11,7 @@ namespace AcmeCorp.Finance {
         
         rule restrictToEmployees{
             deny
-            condition not Subject.Role == 'employee'
+            condition not (Subject.Role == 'employee')
         }
         
        
@@ -19,8 +19,8 @@ namespace AcmeCorp.Finance {
         rule restrictCreation {
             target clause Action == 'Create'
             deny
-            condition not (Subject.Role == 'manager' and PurchaseOrderTotal < PurchaseOrderLimit) or
-                          (Subject.Role == 'employee' and PurchaseOrderTotal < 100 )
+            condition not ((Subject.Role == 'manager' and PurchaseOrderTotal < PurchaseOrderLimit) or
+                           (Subject.Role == 'employee' and PurchaseOrderTotal < 100 ))
         }
         
         

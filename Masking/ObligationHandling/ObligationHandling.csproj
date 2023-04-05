@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
@@ -6,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Policy.alfa" />
-      <EmbeddedResource Include="Policy.alfa" />
+      <None Remove="Policy.alfa"/>
+      <EmbeddedResource Include="Policy.alfa"/>
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Rsk.Enforcer" Version="1.2.0-beta1"/>
+        <PackageReference Include="Rsk.Enforcer" Version="2.0.0"/>
     </ItemGroup>
 
 </Project>
