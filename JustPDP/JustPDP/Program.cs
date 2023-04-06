@@ -19,7 +19,7 @@ namespace JustPDP
 
             var sp = sc.BuildServiceProvider();
 
-            IPolicyDecisionPoint pdp = sp.GetService<IPolicyDecisionPoint>();
+            IPolicyDecisionPoint pdp = sp.GetService<IPolicyDecisionPoint>()!;
 
             var ctx = new OfficeAuthorizationContext("Enter", new string[] {"employee"});
 
