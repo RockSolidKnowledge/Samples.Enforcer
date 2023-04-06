@@ -42,7 +42,7 @@ namespace SecureMVCApp
                 lb.SetMinimumLevel(LogLevel.Trace);
                 lb.AddConsole();
             });
-
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<IManagePurchaseOrders, PurchaseOrderService>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseInMemoryDatabase("Identity"));
@@ -81,7 +81,7 @@ namespace SecureMVCApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
