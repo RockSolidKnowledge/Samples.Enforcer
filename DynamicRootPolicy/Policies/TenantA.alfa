@@ -1,0 +1,12 @@
+namespace Policies
+{
+    policy TenantA
+    {
+        apply firstApplicable
+        
+        rule allowAll{
+            permit
+        }
+    }
+
+}

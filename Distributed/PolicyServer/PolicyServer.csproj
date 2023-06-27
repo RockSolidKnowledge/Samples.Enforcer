@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Rsk.Enforcer.Remote.Hosting" Version="1.0.0"/>
+        <PackageReference Include="Rsk.Enforcer.Remote.Hosting" Version="2.1.0"/>
     </ItemGroup>
 
     <ItemGroup>

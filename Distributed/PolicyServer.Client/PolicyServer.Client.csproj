@@ -35,8 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="2.0.0"/>
-    <PackageReference Include="Rsk.Enforcer.Remote" Version="1.0.0"/>
+    <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="2.1.0"/>
+    <PackageReference Include="Rsk.Enforcer.Remote" Version="2.1.0"/>
   </ItemGroup>
 
 </Project>

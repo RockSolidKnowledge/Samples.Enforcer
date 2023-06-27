@@ -8,7 +8,7 @@ builder.Services
     .AddEnforcer("AcmeCorp.Global", options =>
     {
         options.Licensee = "DEMO";
-        options.LicenseKey ="Get license key from https://identityserver.com/products/Enforcer"
+        options.LicenseKey = "Get license key from https://identityserver.com/products/Enforcer";
     })
     .AddFileSystemPolicyStore("policies")
     .AddPolicyAttributeProvider<FinanceDepartmentAttributeProvider>()

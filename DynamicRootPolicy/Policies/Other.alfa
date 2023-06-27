@@ -1,0 +1,12 @@
+namespace Policies
+{
+    policy TenantOther
+    {
+        apply firstApplicable
+        
+        rule alwaysDeny{
+            deny
+        }
+    }
+
+}

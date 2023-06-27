@@ -17,7 +17,7 @@ namespace AcmeCorp.Finance {
         
         rule restrictToEmployees{
             deny
-            condition not Subject.Role == 'employee'
+            condition not (Subject.Role == 'employee')
             on deny {
                 advice AuthorizationFailure {
                     AuthorizeFailureMessage = "Only employees can access purchase orders"
