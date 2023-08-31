@@ -36,7 +36,7 @@ namespace SecureMVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             string licensee = "DEMO";
-            string licenseKey = "eyJTb2xkRm9yIjowLjAsIktleVByZXNldCI6NiwiU2F2ZUtleSI6ZmFsc2UsIkxlZ2FjeUtleSI6ZmFsc2UsIlJlbmV3YWxTZW50VGltZSI6IjAwMDEtMDEtMDFUMDA6MDA6MDAiLCJhdXRoIjoiREVNTyIsImV4cCI6IjIwMjMtMDctMTlUMDA6MDA6MDAiLCJpYXQiOiIyMDIzLTA2LTE5VDIyOjM0OjE3Iiwib3JnIjoiREVNTyIsImF1ZCI6N30=.IydhalJkfx7EflmJz4eXblCuyrvzF/aYJ0tcq2feAlhbMkTxGuWRpZ7wP3bGxEWc82K87xjPF51s8bnYZI7IAPtH4534lFkD+iadbUUOJ3IfwuBvYROJz4pygGQDEiD74glMafOoMQ7FB8vI9qBtCHcclwVmIFaQLddJjThQ5yxUQtADBgJIVz0t47CxAOWmFZdFtRVntz1ENb3sr46ln36od689jEGwYIRas6O1EwgiSbnnGgULorDqDQESmXlXGTOpXdDK2+Qvy7KmAo5hDbyJiBRlyeCvBGUKufXfc4fNm0APdH9IrY6ddrMaoMOObZGmtHRBXDTby1fO9ZgyHuepHFAOUaULysG1z4krZ7bo22u2P95JRZUICxsTWW3JcMU9YHLyxmaA9j5A0JoSrhep0O8RvqKrAt4fexvW+Q1U5oYGfjuF6LzM5P3GHBbMlAjGU7XXPVbpuQiHVFLllyoD0lTsCSGasX7HSyVY8xgceV5Kubx+iX84LmcThguNHRJgaYCuci9Cdc49ohOjojHd+jdxdcSkitukuAYl/3MGvNpvhZ6f0CaaBmE9yNnXmD0PwcWYFy1/nG+lW3DkApg9Z9kN4fbqlJTaeK+aY7991JUTcr24YgtOyJaMpPaeIrVWfA/VjxNljQRO3lUtm++zjmBJ1Rx3KKL61Tga2KM=";
+            string licenseKey = "Get your demo key from https://identityserver.com/products/enforcer";
             services.AddLogging(lb =>
             {
                 lb.SetMinimumLevel(LogLevel.Trace);
