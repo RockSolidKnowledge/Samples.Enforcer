@@ -1,0 +1,6 @@
+namespace ProtectedWeb.Areas.HelpPage.ModelDescriptions
+{
+    public class DictionaryModelDescription : KeyValuePairModelDescription
+    {
+    }
+}

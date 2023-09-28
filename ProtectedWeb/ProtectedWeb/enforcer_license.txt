@@ -1,0 +1,280 @@
+
+IMPORTANT NOTICE: 
+PLEASE READ CAREFULLY BEFORE CLICKING "I AGREE", ACCEPTING, DOWNLOADING, 
+INSTALLING, ACTIVATING, ACCESSING AND/OR USING THE SOFTWARE DESCRIBED BELOW. 
+THIS END-USER LICENSE AGREEMENT ("LICENSE") IS A LEGAL AGREEMENT BETWEEN YOU, 
+EITHER AN INDIVIDUAL OR AN ENTITY ("LICENSEE" OR "YOU") AND ROCK SOLID 
+KNOWLEDGE LIMITED (REGISTRATION NUMBER 06811209), WITH ITS REGISTERED OFFICE AT 
+C2 VANTAGE OFFICE PARK OLD GLOUCESTER ROAD BRISTOL BS16 1RS ("LICENSOR", "US" 
+OR "WE") FOR THE SOFTWARE AND DOCUMENTATION DESCRIBED BELOW. 
+
+WE LICENSE USE OF THE SOFTWARE AND DOCUMENTATION TO YOU ON THE BASIS OF THIS 
+LICENSE. WE DO NOT SELL THE SOFTWARE OR DOCUMENTATION TO YOU. WE (AND ANY 
+OWNERS OF THIRD PARTY SOFTWARE INCORPORATED INTO THE SOFTWARE) REMAIN THE 
+OWNERS OF THE SOFTWARE AND DOCUMENTATION AT ALL TIMES.
+
+BY CLICKING "I AGREE", ACCEPTING, DOWNLOADING, INSTALLING, ACTIVATING, 
+ACCESSING AND/OR OTHERWISE USING THE SOFTWARE, YOU ACKNOWLEDGE THAT YOU 
+HAVE READ THIS LICENCE AND ARE AGREEING TO BE BOUND BY AND COMPLY WITH THE 
+TERMS AND CONDITIONS OF THIS LICENSE AND ALL APPLICABLE LAWS. 
+
+IF YOU DO NOT AGREE TO BE BOUND BY THE TERMS AND CONDITIONS OF THIS LICENSE, 
+WE WILL NOT LICENSE THE SOFTWARE TO YOU AND YOU MAY NOT AND SHOULD NOT 
+CLICK "I AGREE" OR CONTINUE TO ACCEPT, DOWNLOAD, INSTALL, ACTIVATE, ACCESS OR 
+OTHERWISE USE THE SOFTWARE. 
+
+IF YOU ARE ACCEPTING THIS LICENSE ON BEHALF OF AN ENTITY, YOU ACKNOWLEDGE 
+THAT YOU HAVE THE APPROPRIATE AUTHORITY TO DO SO.
+
+SOFTWARE:
+THE LICENSE IS FOR THE Enforcer Component ("SOFTWARE"). AND 
+ASSOCIATED ONLINE ELECTRONIC DOCUMENTS ("DOCUMENTATION").
+YOU SHOULD PRINT A COPY OF THIS LICENSE FOR FUTURE REFERENCE.
+OTHER TERMS: 
+
+THIS LICENSE INCLUDES (AND SHALL BE DEEMED TO INCORPORATE) ANY OTHER TERMS 
+WE REQUIRE YOU TO AGREE TO AND WHICH WE MAKE AVAILABLE TO YOU AT THE TIME OF 
+PURCHASE OF THE LICENSE
+
+1.	GRANT AND SCOPE OF LICENSE
+1.1	In consideration of payment by you of the agreed license fee and you agreeing to abide by the 
+terms of this License, we hereby grant to you non-exclusive, non-transferable, non-assignable, 
+world-wide, without rights to sublicense to download, install, activate, access, display and/or 
+use the Software and Documentation solely for your internal business purposes.
+1.2	
+(a)	your right to use the Software will be limited to installation on equipment that you 
+own or which your lease from a third party provider for your own use;
+(b)	there are no restrictions on number of users that can use the Software on such 
+equipment. 
+1.3	You must comply with all reasonable instructions issued by us from time to time, relating to the 
+operation of the Software. However, you remain solely responsible for the correct use of the 
+Software and for compliance with all usage-based and other Software terms and conditions 
+imposed by us.
+1.4	You must comply with all applicable laws in connection with your use of the Software and 
+Documentation. 
+1.5	Any feedback, comments, ideas, improvements or suggestions (collectively, "Suggestions") 
+provided by you to us with respect to the Software shall remain our sole and exclusive 
+property. We shall be free to use, copy, modify, publish, or redistribute the Suggestions for any 
+purpose and in any way without any credit or any compensation to you.
+2.	RESTRICTIONS AND LICENSEE OBLIGATIONS
+2.1	Except as expressly set out in this License or to the extent as permitted by any applicable law, 
+you shall not and shall not permit any third party to: 
+(a)	use the Software except in accordance with the terms of this Licence; 
+(b)	cause or permit the copying or reproduction of the Software, except where such 
+copying or reproduction is incidental to normal use of the Software or where it is 
+necessary for the purpose of back-up or operational security [or transfer the 
+Software to any other computer other than one for which Licensee have a valid 
+licence key]; 
+(c)	to keep all copies of the Software secure and to maintain accurate and up-to-date 
+records of the number and locations of all copies of the Software
+(d)	sell, rent, lease, transfer, sub-licence, distribute, assign, deal in, grant any rights in 
+any form to any person or enter into any time share or service bureau arrangements 
+with respect to the Software. In the case of transferring this Licence to an entity 
+owned by the Licensee, such written consent shall not be unreasonably withheld. 
+(e)	translate, modify, alter, adapt or create derivative works from the Software (in whole 
+or in part); 
+(f)	 separate any components of the Software from the Software; 
+(g)	reverse engineer, decompile or disassemble the Software or create any derivative 
+works based on the Software or otherwise derive source code from the Software or 
+attempt to do any of these things, except to the extent and in the circumstances as 
+expressly permitted by and subject to all the conditions of applicable law. Requests 
+for interface information (to achieve interoperability) should be made to the Licensor 
+in writing; 
+(h)	use any back-up copy of the Software (or allow anyone else to use such a copy) for 
+any purpose other than to replace the original copy in the event that it is destroyed 
+or becomes defective; 
+(i)	violate, obliterate, obscure, remove, alter, interfere with or add to (in whole or in part) 
+any proprietary notices, labels, names or marks on, annexed to, or contained within 
+the Software; 
+(j)	use the Software in any manner that infringes the intellectual property or other rights 
+of the Licensor or any other person; or
+(k)	export or re-export, directly or indirectly, the Software or any technical data relating 
+thereto except in compliance with all applicable regulations relating to such export 
+and/or re-export including, without limitation, those of the United Kingdom, the 
+European Union and the United States of America.
+2.2	You shall:
+(a)	supervise and control use of the Software and ensure that the Software is used by 
+your employees and representatives in accordance with the terms of this License; 
+(b)	to comply with all applicable technology control or export laws and regulations; and
+(c)	be responsible for providing and maintaining all necessary hardware and the proper 
+environment to operate the Software as specified by the Documentation or as 
+otherwise specified in writing by the Licensor including, but not limited to, acquiring 
+and maintaining the necessary system configuration (hardware and software) and 
+any necessary third party software and licenses needed to utilize the various 
+capabilities of the Software.  We are not responsible or liable for any errors or 
+defects in such hardware or third party software.  
+3.	INTELLECTUAL PROPERTY RIGHTS
+3.1	You acknowledge that all intellectual property rights in the Software and the Documentation 
+anywhere in the world belong to us (or the owner of any third party software incorporated into 
+the Software), that rights in the Software are licensed (not sold) to you, and that you have no 
+rights in, or to, the Software or the Documentation other than the right to use them in 
+accordance with the terms of this License.
+3.2	You acknowledge that you have no right to have access to the Software in source code form.
+3.3	You undertake that you will keep confidential any information you obtain from us, directly or 
+indirectly, which is marked confidential or which by its nature clearly is confidential 
+("Confidential Information"). Confidential Information includes the Software and 
+Documentation.  You undertake not to disclose the Confidential Information to any third party 
+and not use the Confidential Information for any purpose other than use of the Software under 
+the terms of this Licence. You undertake not disclose to a third party the results of any 
+performance tests carried out on the Software without our prior written consent. 
+4.	SUPPORT AND MAINTENANCE
+4.1	Subject to you subscribing for support and maintenance services ("Support Services"), we will 
+provide the following Support Services:
+(a)	access to our helpdesk by email or telephone to provide first-line technical support to 
+users of the Software;
+(b)	remote diagnosis and, where possible, correction of faults using reasonable 
+commercial efforts; and
+(c)	the provision of enhancements or improvements to the features/functionality of the 
+Software, which may include patches, bug fixes, updates, upgrades and other 
+modifications ("Updates").
+4.2	You agree that all Updates shall be deemed to constitute an integral part of the Software and 
+subject to the terms and conditions of this License. 
+4.3	We shall have no obligation to provide the Support Services where faults arise from:
+(a)	misuse, incorrect use of or damage to the Software from whatever cause (other than 
+any act or omission by us);
+(b)	use of the Software in combination with any equipment or software not provided by 
+us or not designated by us for use with the Software, or any fault in any such 
+equipment or software;
+(c)	any breach of your obligations under this Licence howsoever arising or having the 
+Software maintained by a third party;
+(d)	any modification of the Software not undertaken by us); or
+(e)	operator error.
+4.4	You are not entitled to any Support Services or Updates if you have not subscribed and paid 
+for Support Services. Support Services are provided to you in the first 12 months of this 
+Licence but Support Services for any additional year must be purchased by you.
+4.5	To assist us in providing the Support Services you must:
+(a)	co-operate with us in performing the Support Services and provide any assistance or 
+information as may reasonably be required by us, including in relation to the 
+diagnosis of any faults;
+(b)	report faults promptly to us; 
+(c)	keep full backup copies of all of your data; and
+You have the option to provide us full, safe and uninterrupted access including remote 
+access to your systems, facilities and the Software as may reasonably be required by us for 
+the purpose of performing the Support Services but you have no obligation to do so.
+5.	NO WARRANTY 
+5.1	the software is supplied "as is" without any warranty of any kind, whether express or implied. 
+we give no warranties related to the software whether express, implied or statutory, and we 
+specifically disclaim any implied warranties of quality, merchantability, fitness for a particular 
+purpose, non-infringement or ability to achieve a particular result. 
+5.2	notwithstanding that we give no warranty, we will use commercially reasonable efforts to fix any 
+defect or fault of the software as part of the support services.
+5.3	you assume the entire risk as to the use and performance of the software.  we do not warrant 
+that the software will meet your requirements or be suitable for you or that its operation will be 
+uninterrupted or error free. 
+5.4	we use commercially available virus checkers to detect the existence of viruses but we cannot 
+guarantee that the software will be free from viruses and you must carry out your own checks. 
+6.	THIRD PARTY SERVICES
+6.1	The Software may display, include or make available third-party content (including data, 
+information, components and other products services) or provide links to third-party websites or 
+services ("Third-Party Services").
+6.2	You acknowledge and agree that we shall not be responsible for any Third-Party Services, 
+including their accuracy, completeness, timeliness, validity, copyright compliance, legality, 
+decency, quality or any other aspect thereof. We do not assume and shall not have any liability 
+or responsibility to you or any other person or entity for any Third-Party Services.
+6.3	Third-Party Services and links hereto are provided solely as a convenience to you and you 
+access and use them entirely at your own risk and subject to such third parties' terms and 
+conditions.
+7.	LIMITATION OF LIABILITY 
+7.1	You acknowledge and agree that the software has not been developed to meet your individual 
+requirements, and that it is therefore your responsibility to ensure that the facilities and 
+functions of the software as described in the documentation meets your requirements and is 
+suitable for the purpose for which you wish to use the software.
+7.2	We shall not be liable in any circumstances whatever to you, whether in contract, tort (including 
+negligence), breach of statutory duty, or otherwise, arising under or in connection with the 
+license for any (a) indirect, incidental, punitive, special or consequential damages, (b) loss of 
+profits sales, business, or revenue, (c) loss of or corruption to data or software, (d) loss of use 
+of systems or networks or the recovery of such data, systems or networks, (e) loss of business 
+opportunity, loss of goodwill or reputation, (f) business interruption, or (g) loss of anticipated 
+savings, even if advised or aware of the possibility of such damages.
+7.3	Other than the losses set out in condition 7.2 (for which we are not liable), and notwithstanding 
+anything to the contrary set forth in this License, to the maximum extent allowable by law, our 
+cumulative liability arising out of or in connection with this License howsoever arising 
+(including, without limitation, for breach of contract, for negligence or other tort or otherwise) 
+shall not exceed the licence support fee paid by you.  This maximum cap does not apply to 
+condition 7.4.
+7.4	Nothing in this License shall limit or exclude our  liability for:
+(a)	death or personal injury resulting from our negligence;
+(b)	fraud or fraudulent misrepresentation;
+(c)	any other liability that cannot be excluded or limited by applicable law.
+7.5	This License sets out the full extent of our  obligations and liabilities in respect of the supply of 
+the Software and Documentation. Except as expressly stated in this License, there are no 
+conditions, warranties, representations or other terms, express or implied, that are binding on 
+us.  Any condition, warranty, representation or other term concerning the supply of the 
+Software and Documentation which might otherwise be implied into, or incorporated in, this 
+License whether by statute, common law or otherwise, is excluded to the fullest extent 
+permitted by law.
+8.	TERMINATION
+8.1	This License shall remain in effect until terminated by you or us in accordance with this 
+condition.
+8.2	We may terminate this License immediately by written notice to you if you commit a breach of 
+this License. 
+8.3	You may terminate this License at any time by written notice to us or if you cease use of the 
+Software and delete all copies from your equipment and systems. If you terminate this License, 
+no refund of license fees or support fees will be paid.
+8.4	Upon termination of this License for any reason:
+(a)	all rights granted to the you under this License shall cease;
+(b)	you must immediately cease all activities authorised by this License; 
+(c)	you must immediately delete or remove the Software from all computer equipment 
+and systems in your possession or custody or under your control, and immediately 
+destroy and delete all copies of the Software and Documentation then in the your  
+possession, custody or control and, it requested by us, certify to us that you have 
+done so;
+(d)	the following clauses shall continue in force: clause 1; clause 3; clause 5; clause 6; 
+clause 7; and clause 9); and any other provision of this License that expressly or by 
+implication is intended to come into or continue in force on or after termination or 
+expiry of this License shall remain in full force and effect
+8.5	Termination or expiry of this License shall not affect any rights, remedies, obligations or 
+liabilities of the parties that have accrued up to the date of termination or expiry, including the 
+right to claim damages in respect of any breach of this License which existed at or before the 
+date of termination or expiry.
+9.	OTHER IMPORTANT TERMS
+9.1	We may transfer our rights and obligations under this License to another organisation, but this 
+will not affect your rights or our obligations under this License. 
+9.2	You may only transfer your rights or your obligations under this License to another person if we 
+agree in writing. We will not unreasonably withhold our agreement.
+9.3	This License (including any other terms we require you to agree to and which we make 
+available to you at the time of purchase of the License) constitutes the entire agreement 
+between us and supersedes and extinguishes all previous agreements, promises, assurances, 
+warranties, representations and understandings between us, whether written or oral, relating to 
+its subject matter. You agree that you shall have no remedies in respect of any statement, 
+representation, assurance or warranty (whether made innocently or negligently) that is not set 
+out in this License. You agree that you shall have no claim for innocent or negligent 
+misrepresentation or negligent misstatement based on any statement in this in this License and 
+the only cause of action available to you under the terms of this License in respect of any claim 
+arising out of or in connection with this License shall be for breach of contract.
+9.4	Any notice given by you to us, or by us to you, may be delivered by hand, post, courier or 
+email.
+9.5	If we fail to insist that you perform any of your obligations under this License, or if we do not 
+enforce our rights against you, or if we delay in doing so, that will not mean that we have 
+waived our rights against you and will not mean that you do not have to comply with those 
+obligations. If we do waive a default by you, we will only do so in writing, and that will not mean 
+that we will automatically waive any later default by you. 
+9.6	Each of the conditions of this License operates separately. If any court or competent authority 
+decides that any of them are unlawful or unenforceable, the remaining conditions will remain in 
+full force and effect. 
+9.7	You must comply with all applicable governmental laws, statutes, ordinances, administrative 
+orders, rules and regulations including, without limitation, those related to the export of 
+technical materials.
+9.8	This License is not intended nor shall be construed to confer upon or give to any person or 
+entity other than you and us any rights, remedies or other benefits under or by reason of this 
+License save that our affiliates may enforce the terms of this License.
+9.9	You consent to the collection, processing and transfer of data and information related to the 
+business relationship between you and us, including the transfer of personally identifiable data 
+(for example names, email addresses, telephone numbers) to and between us and our 
+affiliates wherever they may be located, for the purposes of allowing us and our affiliates to 
+perform its obligations under this License and to manage and administer the License. Such 
+data will be subject to our privacy policy, a copy of which is available on 
+[https://www.iubenda.com/privacy-policy/7826669].
+9.10	We shall not process personal data on your behalf unless we expressly agree to do so and we 
+and you agree a data processing agreement. 
+9.11	We shall not be liable hereunder by reason of any failure or delay in the performance of its 
+obligations hereunder on account of strikes, shortages, riots, insurrection, fires, flood, storm, 
+explosions, acts of God, war, governmental action, labour conditions, earthquakes, acts of 
+terrorists, or any other cause which is beyond our reasonable control.
+9.12	This License can be modified only by a written amendment signed by persons duly authorized 
+to sign agreements on behalf of you and us.
+9.13	This License, its subject matter and its formation (and any non-contractual disputes or claims) 
+are governed by English law. We and you both irrevocably agree to the exclusive jurisdiction of 
+the courts of England. 
+ROCK SOLID KNOWLEDGE LIMITED  - END USER LICENSE AGREEMENT 
+LAST UPDATED : FEBRUARY 2019
