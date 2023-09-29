@@ -9,7 +9,7 @@ namespace AcmeCorp.Finance
         rule RestrictAccessToEmployees
         {
             deny
-            condition not Subject.Role == 'employee'
+            condition not (Subject.Role == 'employee')
         }
     }
 }

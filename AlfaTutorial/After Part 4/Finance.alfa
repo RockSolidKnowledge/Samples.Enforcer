@@ -60,8 +60,8 @@ namespace AcmeCorp.Finance
         {
             deny
             target clause Action == 'Create'
-            condition not Subject.Role == 'manager'  or
-                          Subject.Role == 'employee' and PurchaseOrderTotal < 100
+            condition not (Subject.Role == 'manager'  or
+                           ((Subject.Role == 'employee' and PurchaseOrderTotal < 100))
         }
 
          on deny

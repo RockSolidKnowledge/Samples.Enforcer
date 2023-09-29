@@ -12,7 +12,7 @@ namespace AcmeCorp.Finance {
         
         rule restrictToEmployees{
             deny
-            condition not Subject.Role == 'employee'
+            condition not (Subject.Role == 'employee')
         }
         
         rule restrictEdit {
