@@ -24,9 +24,7 @@ namespace WebApiTutorial.PIP
             [SubscriptionLevels.Standard] = long.MaxValue,
             [SubscriptionLevels.Free] = 50,
         };
-
-       
-
+        
         protected override async Task<RateLimits> GetRecordValue(IAttributeResolver attributeResolver,CancellationToken ct)
         {
             IReadOnlyCollection<string> subscriptionValues = await attributeResolver.Resolve<string>(subscriptionLevel,ct);
@@ -55,7 +53,6 @@ namespace WebApiTutorial.PIP
                 CurrentRequestsPerDay = currentRequests
             };
         }
-        
     }
 
     public class RateLimits

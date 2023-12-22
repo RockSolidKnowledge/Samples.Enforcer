@@ -1,0 +1,25 @@
+namespace Global
+{
+	import Oasis.Functions.*
+    import Oasis.Attributes.*
+
+	policy ApiPolicy
+	{
+		apply firstApplicable
+		
+		rule pathCheck
+		{
+			 target clause ResourceType == "http"
+						   && Action == "GET"
+						   && StartsWith("/api/" , Resource) 
+
+			condition not(Subject.Role == "admin")
+			deny
+		}
+
+		rule allowAllOtherPaths
+		{
+			permit
+		}
+	}
+}
