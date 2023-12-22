@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Rsk.Enforcer.AspNetCore.PIP;
 using Rsk.Enforcer.PDP;
@@ -23,17 +24,19 @@ namespace WebApiTutorial.PIP
             [SubscriptionLevels.Standard] = long.MaxValue,
             [SubscriptionLevels.Free] = 50,
         };
-        
-        protected override async Task<RateLimits> GetRecordValue(IAttributeResolver attributeResolver)
+
+       
+
+        protected override async Task<RateLimits> GetRecordValue(IAttributeResolver attributeResolver,CancellationToken ct)
         {
-            IReadOnlyCollection<string> subscriptionValues = await attributeResolver.Resolve<string>(subscriptionLevel);
+            IReadOnlyCollection<string> subscriptionValues = await attributeResolver.Resolve<string>(subscriptionLevel,ct);
 
             if (subscriptionValues.Count == 0)
             {
                 return new RateLimits();
             }
 
-            IReadOnlyCollection<string> currentRequestValues = await attributeResolver.Resolve<string>(currentRequestsFromQuery);
+            IReadOnlyCollection<string> currentRequestValues = await attributeResolver.Resolve<string>(currentRequestsFromQuery,ct);
 
             long currentRequests = 0;
             if (currentRequestValues.Count > 0)
@@ -52,6 +55,7 @@ namespace WebApiTutorial.PIP
                 CurrentRequestsPerDay = currentRequests
             };
         }
+        
     }
 
     public class RateLimits

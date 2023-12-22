@@ -45,7 +45,7 @@ namespace AcmeQuotes
         {
             target clause Action == 'live'
 
-            condition not SubscriptionLevel == 'pro'
+            condition not (SubscriptionLevel == 'pro')
 
             deny
 
@@ -62,7 +62,7 @@ namespace AcmeQuotes
         {
             target clause Action == 'delayed'
 
-            condition not CurrentQuotesToday < MaxQuotesPerDay
+            condition not (CurrentQuotesToday < MaxQuotesPerDay)
 
             deny
 

@@ -28,8 +28,7 @@ namespace MaskingWebApp
         {
             services.AddControllersWithViews();
             
-            // See identityserver.com/products/enforcer for a new license key
-            string licenseKey = "";
+            string licenseKey = "See identityserver.com/products/enforcer for a new license key";
             string rootPolicy = "Policies.TestPolicy";
 
             services.AddEnforcer(rootPolicy, options =>

@@ -17,7 +17,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.11"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11"/>
-   <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="2.1.0"/>
+   <PackageReference Include="Rsk.Enforcer.AspNetCore" Version="4.0.0"/>
   </ItemGroup>
 
   <ItemGroup>

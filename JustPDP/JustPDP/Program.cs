@@ -21,27 +21,33 @@ namespace JustPDP
 
             IPolicyDecisionPoint pdp = sp.GetService<IPolicyDecisionPoint>()!;
 
-            var ctx = new OfficeAuthorizationContext("Enter", new string[] {"employee"});
+            var ctx = new OfficeAuthorizationContext("Enter", new string[] {"manager"});
 
-            try
+            while (true)
             {
-                var authorizationResult = await pdp.EvaluatePolicy(ctx, new ConsoleEnforcerLogger());
-
-                Console.WriteLine(authorizationResult.Outcome);
-
-                PrintPolicyActions("Obligation", authorizationResult.Obligations);
-                PrintPolicyActions("Advice", authorizationResult.Advice);
-            }
-            catch (PolicyCompilationException compilerErrors)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                foreach (var error in compilerErrors.Errors)
+                Console.WriteLine("Press enter to evaluate");
+                Console.ReadLine();
+                Console.WriteLine("Evaluating...");
+                try
                 {
-                    Console.WriteLine($"{error.Line}:{error.Column} {error.Message} ");
+                    var authorizationResult = await pdp.EvaluatePolicy(ctx, new ConsoleEnforcerLogger());
+
+                    Console.WriteLine(authorizationResult.Outcome);
+
+                    PrintPolicyActions("Obligation", authorizationResult.Obligations);
+                    PrintPolicyActions("Advice", authorizationResult.Advice);
                 }
-                
-                Console.ResetColor();
+                catch (PolicyCompilationException compilerErrors)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    foreach (var error in compilerErrors.Errors)
+                    {
+                        Console.WriteLine($"{error.Line}:{error.Column} {error.Message} ");
+                    }
+
+                    Console.ResetColor();
+                }
             }
         }
 
@@ -58,7 +64,7 @@ namespace JustPDP
             }
         }
 
-        public const string LicenseKey = "Get a key from identityserver.com/products/enforcer";
+        public const string LicenseKey = "Visit identityserver.com/products/enforcer to obtain a license";
         public const string Licensee = "DEMO";
 
         private static void ConfigureServices(IServiceCollection services)

@@ -21,7 +21,7 @@ namespace WebApiTutorial
 {
     public class Constants
     {
-        public const string LicenseKey = "your license key";
+        public const string LicenseKey = "eyJTb2xkRm9yIjowLjAsIktleVByZXNldCI6NiwiU2F2ZUtleSI6ZmFsc2UsIkxlZ2FjeUtleSI6ZmFsc2UsIlJlbmV3YWxTZW50VGltZSI6IjAwMDEtMDEtMDFUMDA6MDA6MDAiLCJhdXRoIjoiREVNTyIsImV4cCI6IjIwMjQtMDEtMjBUMDA6MDA6MDAiLCJpYXQiOiIyMDIzLTEyLTIwVDE4OjI0OjU5Iiwib3JnIjoiREVNTyIsImF1ZCI6N30=.WkpW2oOSwgzgN//yTAbqFHrCW4sdepY36e4GtvVCNSwQ7ae11HmvpOFLcS7HRjIdXHKI+QjF3xsEPKrKkHKfH+Kz8luLJpALr46GvG/fvU/JQW+FPG73OLdzohO7MjsbS85qiKFBqaFrkI1aKADGRCaxgr/+0+soFnwBb/evzYltGfg3h6s9jjS1buHLY+b7wOfYHoKTVNRZJKfhKzAo0dZk07OC5FYv02x49rNIlCy3KHOi8dRnSB9BTsH+GUh5Oc9lby6SbgIAmV1aLAZy86HKlGCWWlmIKIy07PKrSAfxL/CmNs/SZ3RVU+BvtEsK3IDhkzuj0O2gY0F9JEebFazs0I4j4i76HyyxjMvGOgFQ29PNcraGhHVgYnoGOHX0zWhL6fBAYsuQlfjJVCt4tPx9BGvouItuTGjzP2frDkjnqDpWoDXOp3FSOwWmA4kIiqBSSwLqILo/yM+o1yXt9/tktT8glIYFTLk4ARatdbjDzx8vDcSQOVrdph+a3/CK2Ulnq+f/U8ulq1OROStm0yGQqTKbt1Mw5JZDUpDL/3SwUg1++2tHSxPIlHyWnzi0wiJ8cDSiwcTlbRHi8W2ECA3I8tJ2w1y+vbk215WFbi6JsmGqs32p1T0sDvL0PzjfAvudvalaXJVZ5IwF5JhH6RfY3W3T+8N1B4R6qpqm4lk=";
         public const string Licensee = "DEMO";
     }
 
@@ -85,7 +85,7 @@ namespace WebApiTutorial
             app.UseAuthentication();
 
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

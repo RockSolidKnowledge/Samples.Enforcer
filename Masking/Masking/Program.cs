@@ -14,7 +14,7 @@ namespace Masking
          static async Task Main(string[] args)
         {
             // See identityserver.com/products/enforcer for a new license key
-            string licenseKey = "";
+            string licenseKey = "See identityserver.com/products/enforcer for a new license key";
             string rootPolicy = "Policies.TestPolicy";
             ServiceCollection containerBuilder = new ServiceCollection();
 
