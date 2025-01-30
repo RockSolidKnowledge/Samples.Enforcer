@@ -1,0 +1,32 @@
+namespace AcmeCorp {
+
+    import Oasis.Functions.*
+    import Oasis.Attributes.*
+    
+    type Permission {
+        Resource:string
+        Action:string
+    }
+
+    attribute Permissions { type=Permission category=subjectCat id="permissions" }
+    attribute AuthenticationType { type=string category=subjectCat id="request.authenticationType" }
+    attribute User { type=string category=subjectCat id="request.user" }
+
+    policy CMS {
+        apply firstApplicable
+
+        target clause ResourceType == "document"
+        
+        rule mustUse2FA {
+            deny
+            condition AuthenticationType != "2FA" 
+        }
+
+        rule permissionBasedAccess {
+            permit
+            target clause Resource == Permissions.Resource
+            
+            condition Permissions[Oasis.Attributes.Resource == Resource].Action == Action
+        }
+    }
+}
