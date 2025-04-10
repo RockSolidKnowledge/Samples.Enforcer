@@ -1,0 +1,37 @@
+namespace AcmeCorp {
+
+    import Oasis.Functions.*
+    import Oasis.Attributes.*
+
+    attribute AuthenticationType { type=string category=subjectCat id="request.authenticationType" }
+    attribute User { type=string category=subjectCat id="request.user" }
+
+    policy CMS {
+        apply firstApplicable
+
+        target clause ResourceType == "document"
+        
+        rule mustUse2FA {
+            deny
+            condition AuthenticationType != "2FA" 
+        }
+
+        rule createDocument {
+            permit
+            target clause Action == "create"
+            condition Role == "writer"
+        }
+
+        rule editDocument {
+            permit
+            target clause Action == "edit"
+            condition Role == "writer" or Role == "editor"
+        }   
+
+        rule publish {
+            permit
+            target clause Action == "publish"
+            condition Role == "editor"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuredAttributeTutorial", "StructuredAttributeTutorial.csproj", "{74B6D91C-6F22-1177-2164-9AEEB6845627}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74B6D91C-6F22-1177-2164-9AEEB6845627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B6D91C-6F22-1177-2164-9AEEB6845627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B6D91C-6F22-1177-2164-9AEEB6845627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B6D91C-6F22-1177-2164-9AEEB6845627}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D1C9FA7-F2AA-471D-B8DD-CA27A5D2F67B}
+	EndGlobalSection
+EndGlobal
