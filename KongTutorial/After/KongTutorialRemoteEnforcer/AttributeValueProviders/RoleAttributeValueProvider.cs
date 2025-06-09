@@ -25,8 +25,7 @@ public class RoleAttributeValueProvider : RecordAttributeValueProvider<UserRole>
     
     protected override async Task<UserRole> GetRecordValue(IAttributeResolver attributeResolver, CancellationToken ct)
     {
-        var subAttribute = await attributeResolver.Resolve<string>(
-            new PolicyAttribute("id", PolicyValueType.String, PolicyAttributeCategories.Subject), ct);
+        var subAttribute = await attributeResolver.Resolve<string>(Rsk.Enforcer.Oasis.Attributes.Subject.Identifier, ct);
 
         var userName = subAttribute.SingleOrDefault();
 
