@@ -1,0 +1,33 @@
+namespace AcmeCorp {
+    import Oasis.Attributes.*
+    import Oasis.Functions
+    import Enforcer.Functions
+       
+    condition ReadTask Action == "GET"
+    condition CompleteTask Action == "PATCH"
+       
+    policyset Global {
+        apply firstApplicable
+        policy TodoServicePolicy {
+            target clause StartsWith("/todolist/api/", Single(Resource)) 
+            apply denyUnlessPermit
+            
+            rule allowAdministrators {
+                target clause Role == "Admin"
+                permit
+            }
+            
+            rule workersCanViewAndCompleteTasks {
+                target clause Role == "Worker"
+                condition ReadTask or CompleteTask
+                permit
+            }
+            
+            rule guestsCanViewTasks {
+                target clause Role == "Guest"
+                condition ReadTask
+                permit
+            }
+        }
+    }
+}
