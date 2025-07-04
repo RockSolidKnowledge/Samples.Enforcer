@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddEnforcer(options =>  {
         options.Licensee = "DEMO";
-        options.LicenseKey = "Goto identityserver.com/products/enforcer for a license key"
+        options.LicenseKey = "See identityserver.com/products/enforcer for a new license key";
     })
     .AddRootPolicyProvider<MyRootPolicyProvider>()
     .AddEmbeddedPolicyStore(Assembly.GetCallingAssembly(), "DynamicRootPolicy.Policies")
